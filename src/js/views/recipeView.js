@@ -7,10 +7,12 @@ export const clearRecipe = () => {
 
 const formatCount = count => {
   if (count) {
+    debugger;
     // count = 2.5 --> 5/2 --> 2 1/2
+    count = count.toFixed(1);
     const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
     
-    if (!dec) return count;
+    if (!dec) return int;
 
     if (int === 0) {
       const fr = new Fraction(count);
