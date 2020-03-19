@@ -26,12 +26,10 @@ export default class Recipe {
   parseIngredients() {
     const unitsLong = ['tablespoon', 'tablespoons', 'onces', 'ounce', 'teaspoon', 'teaspoons', 'cups', 'pounds'];
     const unitsShort = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound'];
-    const units = [...unitsShort, 'kg', 'g'];
 
     const newIngredients = this.ingredients.map( el => {
       
-      // debugger;
-      // 1. Uniform units
+      // 1. Shorten utins
       let formattedUnit = el.unit.toLowerCase();
       unitsLong.forEach((unit, i) => {
         if (formattedUnit === unit) {
@@ -44,7 +42,6 @@ export default class Recipe {
         unit: formattedUnit,
         ingredient: el.name
       };
-
       
       return objIng;
     });
